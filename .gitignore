@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+sdist/
+wheels/
+*.whl
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env
+.env.local
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Selenium / Browser
+chromedriver
+geckodriver
+*.log
+logs/
+screenshots/
+
+# Scraped data (keep examples/ only)
+*.csv
+!examples/*.csv
+
+# Credentials & secrets
+credentials.json
+secrets.json
+cookies.pkl
+session*.pkl
+config.ini
+
+# Cache
+.cache/
+cache/

@@ -1,0 +1,88 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "twitter-data-scraper"
+version = "1.0.0"
+description = "A lightweight Python scraper for Twitter/X user profiles using Selenium. Extract profile links and usernames at scale — no API keys required. Built by SoClose."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "SoCloseSociety", email = "contact@soclose.co"},
+]
+maintainers = [
+    {name = "SoCloseSociety", email = "contact@soclose.co"},
+]
+keywords = [
+    "twitter",
+    "twitter-scraper",
+    "x",
+    "x-scraper",
+    "scraper",
+    "profile-scraper",
+    "selenium",
+    "web-scraping",
+    "data-extraction",
+    "social-media",
+    "automation",
+    "python",
+    "twitter-data",
+    "x-data",
+    "twitter-profiles",
+    "soclose",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "selenium>=4.15.0",
+    "webdriver-manager>=4.0.0",
+    "beautifulsoup4>=4.12.0",
+    "pandas>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+
+[project.urls]
+Homepage = "https://soclose.co"
+Repository = "https://github.com/SoCloseSociety/TwitterDataScraper"
+Issues = "https://github.com/SoCloseSociety/TwitterDataScraper/issues"
+Documentation = "https://github.com/SoCloseSociety/TwitterDataScraper#readme"
+"All Tools" = "https://github.com/SoCloseSociety"
+
+[tool.hatch.build.targets.wheel]
+packages = ["twitter_scraper"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
