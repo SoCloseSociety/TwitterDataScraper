@@ -1,9 +1,9 @@
-"""Browser lifecycle management for TwitterDataScraper."""
+"""""Browser lifecycle management for TwitterDataScraper."""
 
 from __future__ import annotations
 
 import logging
-from typing import Optional
+from typing import Optional, platform
 
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
@@ -13,8 +13,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from twitter_scraper.config import (
     IMPLICIT_WAIT,
     PAGE_LOAD_TIMEOUT,
-    USER_AGENT,
 )
+
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +35,6 @@ class BrowserManager:
         options = webdriver.ChromeOptions()
         options.add_argument("--disable-notifications")
         options.add_argument("--disable-blink-features=AutomationControlled")
-        options.add_argument(f"--user-agent={USER_AGENT}")
         options.add_experimental_option(
             "excludeSwitches", ["enable-logging", "enable-automation"]
         )
@@ -49,6 +48,14 @@ class BrowserManager:
             options.add_argument("--window-size=1920,1080")
         else:
             options.add_argument("--start-maximized")
+
+        # Dynamic user agent based on OS
+        if platform.system() == "Windows":
+            options.add_argument("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+        elif platform.system() == "Darwin":
+            options.add_argument("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+        elif platform.system() == "Linux":
+            options.add_argument("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
 
         return options
 
@@ -73,3 +80,4 @@ class BrowserManager:
             except (OSError, WebDriverException):
                 logger.warning("Browser already closed or failed to quit.")
         return False
+"""
