@@ -1,5 +1,3 @@
-"""Browser lifecycle management for TwitterDataScraper."""
-
 from __future__ import annotations
 
 import logging
@@ -13,7 +11,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from twitter_scraper.config import (
     IMPLICIT_WAIT,
     PAGE_LOAD_TIMEOUT,
-    USER_AGENT,
 )
 
 logger = logging.getLogger(__name__)
@@ -35,7 +32,6 @@ class BrowserManager:
         options = webdriver.ChromeOptions()
         options.add_argument("--disable-notifications")
         options.add_argument("--disable-blink-features=AutomationControlled")
-        options.add_argument(f"--user-agent={USER_AGENT}")
         options.add_experimental_option(
             "excludeSwitches", ["enable-logging", "enable-automation"]
         )
