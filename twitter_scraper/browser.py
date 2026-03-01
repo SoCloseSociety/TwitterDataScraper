@@ -73,3 +73,4 @@ class BrowserManager:
             except (OSError, WebDriverException):
                 logger.warning("Browser already closed or failed to quit.")
         return False
+      ""
