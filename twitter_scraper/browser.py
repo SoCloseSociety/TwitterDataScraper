@@ -1,5 +1,3 @@
-"""Browser lifecycle management for TwitterDataScraper."""
-
 from __future__ import annotations
 
 import logging
